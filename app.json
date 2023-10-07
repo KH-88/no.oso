@@ -90,7 +90,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=hiax-connected-200"
+            "filter": "driver_id=oso-charge-r2"
           }
         ]
       }
@@ -102,7 +102,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=hiax-connected-200&capabilities=max_power"
+            "filter": "driver_id=oso-charge-r2&capabilities=max_power"
           },
           {
             "type": "dropdown",
@@ -156,7 +156,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=hiax-connected-200&capabilities=max_power_3000"
+            "filter": "driver_id=oso-charge-r2&capabilities=max_power_3000"
           },
           {
             "type": "dropdown",
@@ -223,7 +223,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=hiax-connected-200"
+            "filter": "driver_id=oso-charge-r2"
           },
           {
             "type": "number",
@@ -319,9 +319,9 @@
         "cloud"
       ],
       "images": {
-        "small": "/drivers/hiax-connected-200/assets/images/small.png",
-        "large": "/drivers/hiax-connected-200/assets/images/large.png",
-        "xlarge": "/drivers/hiax-connected-200/assets/images/xlarge.png"
+        "small": "/drivers/oso-charge-r2/assets/images/small.png",
+        "large": "/drivers/oso-charge-r2/assets/images/large.png",
+        "xlarge": "/drivers/oso-charge-r2/assets/images/xlarge.png"
       },
       "pair": [
         {
@@ -347,10 +347,10 @@
         }
       ],
       "name": {
-        "en": "Hoiax Connected",
-        "no": "Høiax Connected"
+        "en": "OSO Charge R2",
+        "no": "OSO Charge R2"
       },
-      "id": "hiax-connected-200",
+      "id": "oso-charge-r2",
       "settings": [
         {
           "type": "group",
