@@ -172,5 +172,8 @@
   },
   "1.7.23": {
     "en": "Added rounding on ambient temperature as myUplink no longer does this by itself"
+  },
+  "2.0.0": {
+    "en": "Start"
   }
 }
