@@ -1,0 +1,851 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "no.oso",
+  "version": "2.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "homeyCommunityTopicId": 63238,
+  "source": "https://github.com/frodeheg/no.hoiax",
+  "homepage": "https://www.hoiax.no/",
+  "brandColor": "#0B0B38",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "no": "Høiax",
+    "en": "Hoiax"
+  },
+  "description": {
+    "no": "Smarte varmtvannsberedere",
+    "en": "Smart Water Heaters"
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "contributing": {
+    "donate": {
+      "githubSponsors": {
+        "username": "frodeheg"
+      }
+    }
+  },
+  "author": {
+    "name": "Frode Heggelund",
+    "email": "frode.heggelund@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Frode Heggelund",
+        "email": "frode.heggelund@gmail.com"
+      }
+    ],
+    "translators": [
+      {
+        "name": "Frode Heggelund"
+      }
+    ]
+  },
+  "api": {
+    "getVersion": {
+      "method": "GET",
+      "path": "/getVersion",
+      "public": true
+    }
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "maxpower-changed",
+        "highlight": true,
+        "title": {
+          "en": "Max power changed",
+          "no": "Maks effekt endret seg"
+        },
+        "hint": {
+          "en": "The maximum allowed power changed",
+          "no": "Den maksimalt tillatte effekten endret seg"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "max_power",
+            "title": {
+              "en": "Max power in Watts",
+              "no": "Maks effekt i Watt"
+            },
+            "example": {
+              "en": "W",
+              "no": "W"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=hiax-connected-200"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "change-maxpower",
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=hiax-connected-200&capabilities=max_power"
+          },
+          {
+            "type": "dropdown",
+            "title": {
+              "en": "Max power",
+              "no": "Maks effekt"
+            },
+            "values": [
+              {
+                "id": "low_power",
+                "label": {
+                  "en": "700 W",
+                  "no": "700 W"
+                }
+              },
+              {
+                "id": "medium_power",
+                "label": {
+                  "en": "1300 W",
+                  "no": "1300 W"
+                }
+              },
+              {
+                "id": "high_power",
+                "label": {
+                  "en": "2000 W",
+                  "no": "2000 W"
+                }
+              }
+            ],
+            "name": "max_power"
+          }
+        ],
+        "highlight": true,
+        "title": {
+          "en": "Change maximum power",
+          "no": "Endre maks effekt"
+        },
+        "titleFormatted": {
+          "en": "Change max power to [[max_power]]",
+          "no": "Endre maks effekt til [[max_power]]"
+        },
+        "hint": {
+          "en": "Changes the maximum power of the water heater",
+          "no": "Endrer maks effekt for varmtvannstanken"
+        }
+      },
+      {
+        "id": "change-maxpower-3000",
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=hiax-connected-200&capabilities=max_power_3000"
+          },
+          {
+            "type": "dropdown",
+            "title": {
+              "en": "Max power",
+              "no": "Maks effekt"
+            },
+            "values": [
+              {
+                "id": "low_power",
+                "label": {
+                  "en": "1250 W",
+                  "no": "1250 W"
+                }
+              },
+              {
+                "id": "medium_power",
+                "label": {
+                  "en": "1750 W",
+                  "no": "1750 W"
+                }
+              },
+              {
+                "id": "high_power",
+                "label": {
+                  "en": "3000 W",
+                  "no": "3000 W"
+                }
+              }
+            ],
+            "name": "max_power"
+          }
+        ],
+        "highlight": true,
+        "title": {
+          "en": "Change maximum power",
+          "no": "Endre maks effekt"
+        },
+        "titleFormatted": {
+          "en": "Change max power to [[max_power]]",
+          "no": "Endre maks effekt til [[max_power]]"
+        },
+        "hint": {
+          "en": "Changes the maximum power of the water heater",
+          "no": "Endrer maks effekt for varmtvannstanken"
+        }
+      },
+      {
+        "id": "change-ambient-temp",
+        "highlight": true,
+        "title": {
+          "en": "Let the tank know the room temperature",
+          "no": "La tanken få vite romtemperaturen"
+        },
+        "titleFormatted": {
+          "en": "Change the room temperature to [[ambient_temp]]",
+          "no": "Endre romtemperaturen til [[ambient_temp]]"
+        },
+        "hint": {
+          "en": "By letting the tank know the room temperature, the estimated parameters will be more accurate.",
+          "no": "Ved å sende romtemperaturen til tanken vil estimerte parametere bli mer nøyaktig."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=hiax-connected-200"
+          },
+          {
+            "type": "number",
+            "title": {
+              "en": "Ambient temperature",
+              "no": "Romtemperatur"
+            },
+            "min": 0,
+            "max": 40,
+            "step": 0.1,
+            "name": "ambient_temp"
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "class": "heater",
+      "capabilities": [
+        "max_power",
+        "meter_power.accumulated",
+        "meter_power.leak_accum",
+        "meter_power.in_tank",
+        "measure_power",
+        "measure_power.leak",
+        "target_temperature",
+        "measure_temperature",
+        "onoff",
+        "measure_humidity.fill_level",
+        "measure_humidity.leak_relation",
+        "ambient_temp",
+        "button.reset_leakage"
+      ],
+      "capabilitiesOptions": {
+        "meter_power.accumulated": {
+          "title": {
+            "en": "Total usage",
+            "no": "Totalt forbruk"
+          }
+        },
+        "meter_power.leak_accum": {
+          "title": {
+            "en": "Total heat leakage",
+            "no": "Akkumulert varmetap"
+          }
+        },
+        "meter_power.in_tank": {
+          "title": {
+            "en": "Energy in tank",
+            "no": "I tanken"
+          }
+        },
+        "measure_power.leak": {
+          "title": {
+            "en": "Passive heat leakage",
+            "no": "Passivt varmetap"
+          }
+        },
+        "target_temperature": {
+          "step": 1,
+          "min": 20,
+          "max": 85
+        },
+        "measure_humidity.fill_level": {
+          "title": {
+            "en": "Fill level",
+            "no": "Fyllingsgrad"
+          }
+        },
+        "measure_humidity.leak_relation": {
+          "title": {
+            "en": "Energy leaked yesterday",
+            "no": "Andel strømbruk tapt i går"
+          }
+        },
+        "button.reset_leakage": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Reset accumulated leakage",
+            "no": "Reset akkumulert lekasjevarme"
+          },
+          "desc": {
+            "en": "Reset the accumulated leakage heat (kWh), note that this can not be reversed.",
+            "no": "Reset den akkumulerte lekasjevarmen (kWh), vær oppmerksom på at dette ikke kan angres."
+          }
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/hiax-connected-200/assets/images/small.png",
+        "large": "/drivers/hiax-connected-200/assets/images/large.png",
+        "xlarge": "/drivers/hiax-connected-200/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "name": {
+        "en": "Hoiax Connected",
+        "no": "Høiax Connected"
+      },
+      "id": "hiax-connected-200",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Tank settings",
+            "no": "Tank innstillinger"
+          },
+          "children": [
+            {
+              "id": "ambient_temperature",
+              "type": "number",
+              "label": {
+                "en": "Average Ambient Temperature",
+                "no": "Gjennomsnittlig romtemperatur"
+              },
+              "hint": {
+                "en": "Used internally when calculating energy in tank. If you have a temperature sensor in the room it is reccomended to use a flow to forward this to the tank for improved accuracy.",
+                "no": "Brukes internt for å regne ut energien i tanken. Hvis du har en temperatursensor i rommet er det anbefalt å opprette en flow som videresender denne til tanken for økt nøyaktighet."
+              },
+              "value": 0,
+              "min": 10,
+              "max": 35,
+              "units": {
+                "en": "°C",
+                "no": "°C"
+              }
+            },
+            {
+              "id": "inlet_temperature",
+              "type": "number",
+              "label": {
+                "en": "Average Inlet Water Temperature",
+                "no": "Gjennomsnittlig temperatur på vanninntak"
+              },
+              "hint": {
+                "en": "Used internally when calculating energy in tank",
+                "no": "Brukes internt for å regne ut energien i tanken"
+              },
+              "value": 0,
+              "min": 4,
+              "max": 20,
+              "units": {
+                "en": "°C",
+                "no": "°C"
+              }
+            },
+            {
+              "id": "max_water_flow",
+              "type": "number",
+              "label": {
+                "en": "Max Water Flow",
+                "no": "Maks vanngjennomstrømning"
+              },
+              "hint": {
+                "en": "Used internally when calculating energy in tank",
+                "no": "Brukes internt for å regne ut energien i tanken"
+              },
+              "value": 0,
+              "min": 5,
+              "max": 40,
+              "units": {
+                "en": "l/m",
+                "no": "l/m"
+              }
+            },
+            {
+              "id": "regulation_diff",
+              "type": "number",
+              "label": {
+                "en": "Regulation Diff",
+                "no": "Hysterese"
+              },
+              "hint": {
+                "en": "Allows the temperature to drop this many degrees before heating up again",
+                "no": "Antall grader vanntemperaturen kan falle før den varmes opp igjen"
+              },
+              "value": 0,
+              "min": 3,
+              "max": 10,
+              "units": {
+                "en": "°C",
+                "no": "°C"
+              }
+            },
+            {
+              "id": "legionella_frequency",
+              "type": "number",
+              "label": {
+                "en": "Frequency for legionella program",
+                "no": "Frekvens for legionella-program"
+              },
+              "hint": {
+                "en": "Number of weeks between every Legionella program",
+                "no": "Antall uker mellom hvert legionellaprogram"
+              },
+              "value": 0,
+              "min": 2,
+              "max": 8,
+              "units": {
+                "en": "weeks",
+                "no": "uker"
+              }
+            },
+            {
+              "id": "controling_device",
+              "type": "dropdown",
+              "value": "8",
+              "label": {
+                "en": "Controlling device",
+                "no": "Styringsenhet"
+              },
+              "values": [
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "Self (Eco mode)",
+                    "no": "Selvstendig (Øko modus)"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Self (Normal mode)",
+                    "no": "Selvstendig (Normal modus)"
+                  }
+                },
+                {
+                  "id": "6",
+                  "label": {
+                    "en": "Self (Spot price)",
+                    "no": "Selvstendig (Spotpris)"
+                  }
+                },
+                {
+                  "id": "7",
+                  "label": {
+                    "en": "Self (Schedule)",
+                    "no": "Selvstendig (Timeplan)"
+                  }
+                },
+                {
+                  "id": "8",
+                  "label": {
+                    "en": "Homey",
+                    "no": "Homey"
+                  }
+                },
+                {
+                  "id": "10",
+                  "label": {
+                    "en": "Self (Vacation)",
+                    "no": "Selvstendig (Ferie)"
+                  }
+                },
+                {
+                  "id": "11",
+                  "label": {
+                    "en": "Self (Boost)",
+                    "no": "Selvstendig (Boost)"
+                  }
+                }
+              ],
+              "hint": {
+                "en": "WARNING: Unless this value is set to Homey, this app will have to compete with myUplink to control the device. It's no way to say if we will win or not.\n\nThe setting for Spot price is discouraged as it does not follow the power tariff.\n\nFor optimal control of the tank with regards to prices and power tariff it is reccomended to install the app Piggy Bank to control the tank.",
+                "no": "ADVARSEL: Med mindre denne verdien er satt til Homey må denne appen sloss med myUplink om hvem som får styre enheten. Det er ingen måte å vite om vi vil vinne eller ikke.\n\nInnstillingen for Spotpris frarådes ettersom den ikke tar hensyn til effekttariff.\n\nFor optimal styring av tanken med hensyn på strømpris og effekttariff anbefales det å installere appen Sparegris for å kontrollere tanken."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Spot price (Requires the controlling device to be set to 'Self (Spot price)') - It is strongly reccomended that you instead set the controlling unit to Homey and install the app Piggy Bank.",
+            "no": "Spotpris (Krever at styringsenhet er satt til 'Selvstendig (Spotpris)') - Det anbefales på det sterkeste at du heller lar styringsenheten være satt til Homey og istedenfor installerer appen Sparegris."
+          },
+          "children": [
+            {
+              "id": "nordpool_price_region",
+              "type": "dropdown",
+              "value": "0",
+              "label": {
+                "en": "Nordpool price region",
+                "no": "Nordpool prisregion"
+              },
+              "values": [
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "NO1 - Norway East",
+                    "no": "NO1 - Norge Øst"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "NO2 - Norway South",
+                    "no": "NO2 - Norge Sør"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "NO3 - Norway Middle",
+                    "no": "NO3 - Norge Midt"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "NO4 - Norway North",
+                    "no": "NO4 - Norge Nord"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "NO5 - Norway West",
+                    "no": "NO5 - Norge Vest"
+                  }
+                }
+              ],
+              "hint": {
+                "en": "The price region to which the tank should be adapted",
+                "no": "Prisregion som strømstyringen skal tilpasses"
+              }
+            },
+            {
+              "id": "num_expensive_hours",
+              "type": "number",
+              "label": {
+                "en": "Number of expensive hours per day",
+                "no": "Antall dyre timer per døgn"
+              },
+              "value": 6,
+              "min": 0,
+              "max": 18,
+              "units": {
+                "en": "hours",
+                "no": "timer"
+              }
+            },
+            {
+              "id": "min_remain_heat",
+              "type": "number",
+              "label": {
+                "en": "Minimum remaining heat in expensive hours",
+                "no": "Minimum restvarme i dyre timer"
+              },
+              "value": 50,
+              "min": 20,
+              "max": 100,
+              "units": {
+                "en": "%",
+                "no": "%"
+              }
+            },
+            {
+              "id": "num_cheap_hours",
+              "type": "number",
+              "label": {
+                "en": "Number of cheap hours per day",
+                "no": "Antall billige timer per døgn"
+              },
+              "value": 4,
+              "min": 0,
+              "max": 12,
+              "units": {
+                "en": "hours",
+                "no": "timer"
+              }
+            },
+            {
+              "id": "temp_inc_cheap_hours",
+              "type": "number",
+              "label": {
+                "en": "Setpoint increase in cheap hours",
+                "no": "Temperaturøkning i billige timer"
+              },
+              "value": 5,
+              "min": 0,
+              "max": 20,
+              "units": {
+                "en": "°C",
+                "no": "°C"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Status",
+            "no": "Status"
+          },
+          "children": [
+            {
+              "id": "TankVolume",
+              "type": "label",
+              "label": {
+                "en": "Tank Volume",
+                "no": "Tank Volum"
+              },
+              "value": "???l",
+              "hint": {
+                "en": "The size of the tank.",
+                "no": "Størrelsen på tanken."
+              }
+            },
+            {
+              "id": "SerialNo",
+              "type": "label",
+              "label": {
+                "en": "Serial Number",
+                "no": "Serienummer"
+              },
+              "value": "???",
+              "hint": {
+                "en": "The serial number of the tank.",
+                "no": "Serienummeret til tanken."
+              }
+            },
+            {
+              "id": "firmwareVersion",
+              "type": "label",
+              "label": {
+                "en": "Firmware Version",
+                "no": "Fastvareversjon"
+              },
+              "value": "???",
+              "hint": {
+                "en": "The Firmware version of the tank.",
+                "no": "Fastvareversjonen til tanken."
+              }
+            },
+            {
+              "id": "HeaterNomPower",
+              "type": "label",
+              "label": {
+                "en": "Nominal power element 1",
+                "no": "Nominell effekt element 1"
+              },
+              "value": "???",
+              "hint": {
+                "en": "The nominal power for heating element 1.",
+                "no": "Den nominelle effekten til varmeelement 1."
+              }
+            },
+            {
+              "id": "HeaterNomPower2",
+              "type": "label",
+              "label": {
+                "en": "Nominal power element 2",
+                "no": "Nominell effekt element 2"
+              },
+              "value": "???",
+              "hint": {
+                "en": "The nominal power for heating element 2.",
+                "no": "Den nominelle effekten til varmeelement 2."
+              }
+            },
+            {
+              "id": "LeakageConstant",
+              "type": "label",
+              "label": {
+                "en": "Leakage constant",
+                "no": "Lekkasjekonstant"
+              },
+              "value": "???",
+              "hint": {
+                "en": "Number of Watts passively leaked to the environment per degree C temperature difference between the outside and the inside of the tank. This has been measured on a Connected 200 tank over 2 days after the internal pressure and temperature has had 1 day to stabilize at 85 degrees Celcius.\n\nIt should be noted that this is passive lakage heat only and that an active component might exist as well in form of return water to the water inlet if a non-return valve has not been mounted. This active heat loss is not (currently) measured but it may depending on the usage pattern very well exceed the passive heat loss.",
+                "no": "Antall Watt passiv lekkasjevarme til omgivelsene per grad C temperaturforskjell mellom utsiden og innsiden av tanken. Dette har blitt målt på en Connected 200 tank over 2 døgn etter at tanken har hatt 1 døgn på seg til å stabilisere trykk og temperatur på 85 grader Celcius. Dersom du har Connected 300 blir verdien skalert opp, noe som kan være feil så om du har muligheten til å hjelpe til med å måle riktig verdi ta gjerne kontakt med utvikler.\n\nDet gjøres oppmerksom på at dette kun er passiv lekasjevarme og at det også kan tilkomme en aktiv komponent i form av tilbakeslag til kaldtvannsinntaket dersom det ikke er montert på en tilbakeslagsventil på inntaket til varmtvannstanken. Dette aktive varmetapet blir (foreløbig) ikke målt men kan avhengig av bruksmønster fort overstige det passive varmetapet."
+              }
+            },
+            {
+              "id": "systemId",
+              "type": "label",
+              "label": {
+                "en": "systemId"
+              },
+              "value": "???"
+            },
+            {
+              "id": "systemName",
+              "type": "label",
+              "label": {
+                "en": "systemName"
+              },
+              "value": "???"
+            },
+            {
+              "id": "deviceId",
+              "type": "label",
+              "label": {
+                "en": "deviceId"
+              },
+              "value": "???"
+            },
+            {
+              "id": "deviceName",
+              "type": "label",
+              "label": {
+                "en": "deviceName"
+              },
+              "value": "???"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "ambient_temp": {
+      "type": "number",
+      "title": {
+        "en": "Ambient temperature",
+        "no": "Romtemperatur"
+      },
+      "getable": false,
+      "setable": true,
+      "uiComponent": null,
+      "units": {
+        "en": "°C",
+        "no": "°C"
+      },
+      "min": 0,
+      "max": 40,
+      "step": 0.1
+    },
+    "max_power": {
+      "type": "enum",
+      "title": {
+        "en": "Max power",
+        "no": "Max effekt"
+      },
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "low_power",
+          "title": {
+            "en": "Low power - 700 W",
+            "no": "Lav effekt - 700 W"
+          }
+        },
+        {
+          "id": "medium_power",
+          "title": {
+            "en": "Medium power - 1300 W",
+            "no": "Middels effekt - 1300 W"
+          }
+        },
+        {
+          "id": "high_power",
+          "title": {
+            "en": "Max power - 2000 W",
+            "no": "Maks effekt - 2000 W"
+          }
+        }
+      ],
+      "uiComponent": "picker",
+      "uiQuickAction": true
+    },
+    "max_power_3000": {
+      "type": "enum",
+      "title": {
+        "en": "Max power",
+        "no": "Max effekt"
+      },
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "low_power",
+          "title": {
+            "en": "Low power - 1250 W",
+            "no": "Lav effekt - 1250 W"
+          }
+        },
+        {
+          "id": "medium_power",
+          "title": {
+            "en": "Medium power - 1750 W",
+            "no": "Middels effekt - 1750 W"
+          }
+        },
+        {
+          "id": "high_power",
+          "title": {
+            "en": "Max power - 3000 W",
+            "no": "Maks effekt - 3000 W"
+          }
+        }
+      ],
+      "uiComponent": "picker",
+      "uiQuickAction": true
+    }
+  }
+}

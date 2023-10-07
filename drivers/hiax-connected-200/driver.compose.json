@@ -1,7 +1,0 @@
-{
-  "name": {
-    "en": "Hoiax Connected",
-    "no": "Høiax Connected"
-  },
-  "$extends": ["defaults"]
-}

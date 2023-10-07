@@ -1,0 +1,7 @@
+{
+  "name": {
+    "en": "OSO Charge R2",
+    "no": "OSO Charge R2"
+  },
+  "$extends": ["defaults"]
+}
