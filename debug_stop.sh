@@ -1,5 +1,5 @@
 # Restore state
-sed -i 's/"no.hoiax2"/"no.hoiax"/g' .homeycompose/app.json
-sed -i 's/"Høiax 2"/"Høiax"/g' .homeycompose/app.json
-sed -i 's/"no.hoiax2"/"no.hoiax"/g' ./app.json
-sed -i 's/"Høiax 2"/"Høiax"/g' ./app.json
+sed -i 's/"no.oso"/"no.oso"/g' .homeycompose/app.json
+sed -i 's/"OSO Charge R2"/"OSO"/g' .homeycompose/app.json
+sed -i 's/"no.oso"/"no.oso"/g' ./app.json
+sed -i 's/"OSO Charge R2"/"OSO"/g' ./app.json
